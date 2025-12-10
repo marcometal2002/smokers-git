@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear Cuenta - The Smokers Store</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0a0a0a;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.form-box{
+    width:450px;
+    background:#111;
+    padding:45px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(255,255,255,0.15);
+    text-align:center;
+}
+
+.form-box h2{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.form-box input{
+    width:100%;
+    padding:14px;
+    margin-bottom:20px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+.form-box button{
+    width:100%;
+    padding:14px;
+    background:linear-gradient(90deg,#000428,#004e92);
+    color:white;
+    border:none;
+    border-radius:15px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.form-box button:hover{
+    transform:scale(1.03);
+}
+
+.form-box a{
+  color:#4da3ff;
+  text-decoration:none;
+  display:block;
+  margin-top:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-box">
+    <h2>Crear cuenta</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre Completo" required>
+    <input type="email" id="email" placeholder="Correo Electrónico" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <input type="date" id="fecha" required>
+
+    <button onclick="registrar()">Registrar</button>
+
+    <a href="iniciar-sesion.html">¿Ya tienes cuenta? Inicia Sesión</a>
+</div>
+
+<script>
+function registrar(){
+    const nombre = document.getElementById("nombre").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const fecha = document.getElementById("fecha").value;
+
+    if(!nombre || !email || !password || !fecha){
+        alert("Todos los campos son obligatorios");
+        return;
+    }
+
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const existe = usuarios.find(u => u.email === email);
+    if(existe){
+        alert("Este correo ya está registrado");
+        return;
+    }
+
+    const nuevoUsuario = {
+        nombre: nombre,
+        email: email,
+        password: password,
+        fecha: fecha
+    };
+
+    usuarios.push(nuevoUsuario);
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+    alert("Cuenta creada con éxito");
+    window.location.href = "iniciar-sesion.html";
+}
+
+
+
+</script>
+
+</body>
+</html>

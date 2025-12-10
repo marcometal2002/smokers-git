@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>The Smokers Store</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+      background:#000000;
+      padding:40px;
+      color:white;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 50px;
+      background:linear-gradient(135deg, #7b2ff7, #1c1c9c);
+      border-radius:20px;
+      color:white;
+      box-shadow:0 0 30px rgba(0,0,0,0.6);
+    }
+
+    header img{
+      width:120px;
+      height:120px;
+      object-fit:contain;
+      border-radius:100%;
+      border:3px solid white;
+    }
+
+    .buttons{
+      margin-top:70px;
+      display:flex;
+      gap:25px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    button{
+      background:linear-gradient(90deg,#000428,#004e92);
+      border:none;
+      color:white;
+      padding:18px 45px;
+      border-radius:35px;
+      font-size:18px;
+      font-weight:500;
+      cursor:pointer;
+      transition:0.2s;
+      min-width:230px;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      box-shadow:0px 7px 20px rgba(255,255,255,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Smokers Store</h1>
+    <img src="logo.png.jpg" alt="logo">
+  </header>
+
+  <div class="buttons">
+    <button onclick="window.location.href='crear-cuenta.html'">Crear una cuenta</button>
+    <button onclick="window.location.href='iniciar-sesion.html'">Iniciar sesión</button>
+    <button onclick="alert('Recuperar contraseña')">Olvidé contraseña</button>
+    <button onclick="alert('Cerrar app')">Cerrar app</button>
+  </div>
+
+</body>
+</html>
